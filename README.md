@@ -1,14 +1,13 @@
 # Jamf API Call For the Vault
+## To Run
+navigate to the folder
 
+build the container with ```docker build -t jamf-api .```
+run with ```docker run -v ./:/app --rm jamf-api```
 
-
-
-build container with ```docker build -t jamf_api .``` inside the directory
-
-run with ```docker run --rm --name jamf_api jamf_api```
-
+## .env requirements
 you'll need to provide a .env file with the following variables
 ```
-USERNAME=
-PASSWORD=
+JAMF_CLIENT_ID=
+JAMF_CLIENT_SECRET=
 ```
