@@ -1,9 +1,12 @@
 # Use an official Python runtime as a parent image
-FROM python:3.7-slim
+FROM php:8.2-cli
 
 # Install curl and jq
 RUN apt-get update && \
     apt-get install -y curl jq
+
+# Install mysqli extension
+RUN docker-php-ext-install mysqli
 
 # Set the working directory in the container to /app
 WORKDIR /app
