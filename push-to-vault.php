@@ -76,7 +76,7 @@ foreach ($data['results'] as $entry) {
         if ($stmt->execute() === false) {
             echo "Error executing statement: " . $stmt->error . "\n";
         } else {
-            echo "Processed entry: " . $serial . "\n";
+            echo "Inserted or Updated for: " . $serial . "\n";
         }
     } catch (Exception $e) {
         error_log("Error processing entry: " . $e->getMessage());
