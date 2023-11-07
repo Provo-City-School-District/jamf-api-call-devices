@@ -5,7 +5,7 @@ uses JAMF API to get a list of all computers in the JAMF instance and then proce
 navigate to the folder
 
 build the container with ```docker build -t jamf-api .```
-run with ```docker run -v ./:/app --env-file=.env --rm jamf-api```
+run with ```docker run -v ./:/app --env-file=.env --rm --log-driver=syslog --log-opt syslog-address=udp://localhost:514 --log-opt tag=jamf-api-read jamf-api```
 
 ## .env requirements
 you'll need to provide a .env file with the following variables
