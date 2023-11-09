@@ -25,7 +25,7 @@ foreach ($jsonFiles as $jsonFile) {
     // Check if the file is an computer or mobile file
     if (strpos($jsonFile, 'computer_') !== false) {
         // Merge the data into the inventoryData array
-       $inventoryData = array_merge($inventoryData, $data['results']);
+        $inventoryData = array_merge($inventoryData, $data['results']);
     } elseif (strpos($jsonFile, 'mobile_') !== false) {
         // Merge the data into the mobileInventoryData array
         $mobileInventoryData = array_merge($mobileInventoryData, $data['results']);
@@ -141,7 +141,7 @@ foreach ($mobileInventoryData as $entry) {
     $mac_address = $entry['hardware']['wifiMacAddress'];
 
     $os_name = $entry['deviceType'];
-    
+
 
     if ($lastCheckedIn !== null) {
         $timestamp = strtotime($lastCheckedIn);
@@ -187,18 +187,18 @@ foreach ($mobileInventoryData as $entry) {
     }
 
 
-     // pushes the last checked in date to the assets table into the filewave column
-     $sql = "UPDATE assets SET filewave = ? WHERE serial = ?";
-     $stmt = $mysqli->prepare($sql);
-     $stmt->bind_param("ss", $lastCheckedIn, $serial);
- 
-     if ($stmt->execute()) {
-         echo "Pushed \"Last Check in\" time for: " . $serial . " in assets table" . "\n";
-     } else {
-         if ($stmt->affected_rows === 0) {
-             echo "No rows affected for serial number: " . $serialNumber . "\n";
-         }
-         echo "Error updating record: " . $stmt->error;
-     }
+    // pushes the last checked in date to the assets table into the filewave column
+    $sql = "UPDATE assets SET filewave = ? WHERE serial = ?";
+    $stmt = $mysqli->prepare($sql);
+    $stmt->bind_param("ss", $lastCheckedIn, $serial);
+
+    if ($stmt->execute()) {
+        echo "Pushed \"Last Check in\" time for: " . $serial . " in assets table" . "\n";
+    } else {
+        if ($stmt->affected_rows === 0) {
+            echo "No rows affected for serial number: " . $serialNumber . "\n";
+        }
+        echo "Error updating record: " . $stmt->error;
+    }
 }
 $mysqli->close();
