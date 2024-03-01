@@ -37,4 +37,8 @@ CREATE TABLE jamf_data (
     device_model VARCHAR(255),
     serial VARCHAR(255) UNIQUE
 );
+## Fix Container
+We've had a few situations where JAMFs api acts up and when this script crawls the pages sometimes it gets an error where it sees infinite pages.  to fix this remove all the extranious computer_.json and mobile_.json files. you can remove them all with something like ```rm computer_*.json && rm mobile_*.json```
+
+then just rebuild the container again and run with the crontab command so that everything gets updated.
 ```
