@@ -24,11 +24,17 @@ foreach ($jsonFiles as $jsonFile) {
 
     // Check if the file is an computer or mobile file
     if (strpos($jsonFile, 'computer_') !== false) {
-        // Merge the data into the inventoryData array
-        $inventoryData = array_merge($inventoryData, $data['results']);
+        // Check if 'results' key exists and is an array
+        if (isset($data['results']) && is_array($data['results'])) {
+            // Merge the data into the inventoryData array
+            $inventoryData = array_merge($inventoryData, $data['results']);
+        }
     } elseif (strpos($jsonFile, 'mobile_') !== false) {
-        // Merge the data into the mobileInventoryData array
-        $mobileInventoryData = array_merge($mobileInventoryData, $data['results']);
+        // Check if 'results' key exists and is an array
+        if (isset($data['results']) && is_array($data['results'])) {
+            // Merge the data into the mobileInventoryData array
+            $mobileInventoryData = array_merge($mobileInventoryData, $data['results']);
+        }
     }
 }
 
