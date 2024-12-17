@@ -15,7 +15,7 @@ foreach ($jsonFiles as $jsonFile) {
     if ($jsonFile === 'response.json') {
         continue;
     }
-    echo "Processing file: " . $jsonFile . "\n";
+    error_log("Processing file: " . $jsonFile);
     // Read the JSON file
     $json = file_get_contents($jsonFile);
 
