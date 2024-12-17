@@ -114,7 +114,7 @@ foreach ($inventoryData as $entry) {
         if ($stmt->execute() === false) {
             echo "Error executing statement for serial number: " . $serialNumber . ". Error: " . $stmt->error . "\n";
         } else {
-            echo "Inserted or Updated jamf_data for: " . $serial . "From Inventory" . "\n";
+            echo "Inserted or Updated jamf_data for: " . $serial . " From Inventory" . "\n";
         }
     } catch (Exception $e) {
         error_log("Error processing entry: " . $e->getMessage());
