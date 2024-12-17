@@ -189,7 +189,7 @@ foreach ($mobileInventoryData as $entry) {
         if ($stmt->affected_rows === 0) {
             echo "No rows affected for serial number: " . $serial . "\n";
         }
-        echo "Inserted or Updated jamf_data for: " . $serial . "From Mobile Data" . "\n";
+        echo "Inserted or Updated jamf_data for: " . $serial . " From Mobile Data" . "\n";
     }
 
 
