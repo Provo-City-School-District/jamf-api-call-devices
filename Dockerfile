@@ -1,5 +1,5 @@
 # Use an official Python runtime as a parent image
-FROM php:8.2-cli
+FROM php:8.4-cli
 
 # Install curl and jq
 RUN apt-get update && \
